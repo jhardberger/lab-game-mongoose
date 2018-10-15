@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 //db
 require('./db/db');
@@ -11,6 +12,7 @@ const gamesController = require('./controllers/games');
 
 //middleware
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
 
 app.use('/games', gamesController);
 

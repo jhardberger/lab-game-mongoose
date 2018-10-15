@@ -13,10 +13,27 @@ router.get('/', (req, res) => {
 	});
 });
 
-
 //new
 router.get('/new', (req, res) => {
 	res.render('new.ejs')
+});
+
+//show
+router.get('/:id', (req, res) => {
+	Games.findById(req.params.id, (err, foundGame) => {
+		res.render('show.ejs', {
+			game: foundGame
+		});
+	});
+});
+
+//edit route
+router.get('/:id/edit', (req, res) => {
+	Games.findById(req.params.id, (err, editGame) => {
+		res.render('edit.ejs', {
+			game: editGame
+		});
+	});
 });
 
 //new post
@@ -28,6 +45,20 @@ router.post('/', (req, res) => {
 		}else{
 			console.log(newGame);
 		}
+		res.redirect('/games')
+	});
+});
+
+//edit put
+router.put('/:id', (req, res) => {
+	Games.findByIdAndUpdate(req.params.id, req.body, () => {
+		res.redirect('/games')	
+	});
+});
+
+//delete route
+router.delete('/:id', (req, res) => {
+	Games.findOneAndDelete(req.params.id, () => {
 		res.redirect('/games')
 	});
 });

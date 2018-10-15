@@ -8,9 +8,10 @@
 	<br>
 	<ul>
 		<%games.forEach((elem, i) => { %>
-			<li><%=elem.name%></li>
+			<li><a href="/games/<%=elem.id%>"><%=elem.name%></a></li>
 		<%})%>
 	</ul>
-	
+	<br>
+	<a href="/games/new">Add game</a>
 </body>
 </html>
