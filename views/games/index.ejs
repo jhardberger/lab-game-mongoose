@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Game Index</h1>
+	<br>
+	<ul>
+		<%games.forEach((elem, i) => { %>
+			<li><a href="/games/<%=elem.id%>"><%=elem.name%></a></li>
+		<%})%>
+	</ul>
+	<br>
+	<a href="/games/new">Add game</a>
+</body>
+</html>
