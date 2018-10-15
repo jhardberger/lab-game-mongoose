@@ -6,9 +6,12 @@ require('./db/db');
 
 //controller
 const gamesController = require('./controllers/games');
-app.use('/games', gamesController);
+
 
 //middleware
+
+
+app.use('/games', gamesController);
 
 //test route
 app.get('/', (req, res) => {
