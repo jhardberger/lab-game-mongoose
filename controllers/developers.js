@@ -1,37 +1,37 @@
 const express = require('express');
 const router = express.Router();
-const Games = require('../models/games');
+const Developers = require('../models/developers');
 
 //routes
 
 //index
 router.get('/', (req, res) => {
-	Games.find({}, (err, foundGames) => {
-		res.render('index.ejs', {
-			games: foundGames
+	Developers.find({}, (err, foundDevelopers) => {
+		res.render('developers/index.ejs', {
+			developers: foundDevelopers
 		});
 	});
 });
 
 //new
 router.get('/new', (req, res) => {
-	res.render('new.ejs')
+	res.render('developers/new.ejs')
 });
 
 //show
 router.get('/:id', (req, res) => {
-	Games.findById(req.params.id, (err, foundGame) => {
-		res.render('show.ejs', {
-			game: foundGame
+	Developers.findById(req.params.id, (err, foundDevelopers) => {
+		res.render('developers/show.ejs', {
+			developers: foundDevelopers
 		});
 	});
 });
 
 //edit route
 router.get('/:id/edit', (req, res) => {
-	Games.findById(req.params.id, (err, editGame) => {
-		res.render('edit.ejs', {
-			game: editGame
+	Developers.findById(req.params.id, (err, editDevelopers) => {
+		res.render('developers/edit.ejs', {
+			developers: editDevelopers
 		});
 	});
 });
@@ -39,27 +39,27 @@ router.get('/:id/edit', (req, res) => {
 //new post
 router.post('/', (req, res) => {
 	console.log(req.body);
-	Games.create(req.body, (err, newGame) => {
+	Developers.create(req.body, (err, newDevelopers) => {
 		if(err){
 			console.log(err);
 		}else{
-			console.log(newGame);
+			console.log(newDevelopers);
 		}
-		res.redirect('/games')
+		res.redirect('/developers')
 	});
 });
 
 //edit put
 router.put('/:id', (req, res) => {
-	Games.findByIdAndUpdate(req.params.id, req.body, () => {
-		res.redirect('/games')	
+	Developers.findByIdAndUpdate(req.params.id, req.body, () => {
+		res.redirect('/developers')	
 	});
 });
 
 //delete route
 router.delete('/:id', (req, res) => {
-	Games.findOneAndDelete(req.params.id, () => {
-		res.redirect('/games')
+	Developers.findOneAndDelete(req.params.id, () => {
+		res.redirect('/developers')
 	});
 });
 
