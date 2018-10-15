@@ -5,6 +5,12 @@
 </head>
 <body>
 	<h1>Game Index</h1>
+	<br>
+	<ul>
+		<%games.forEach((elem, i) => { %>
+			<li><%=elem.name%></li>
+		<%})%>
+	</ul>
 	
 </body>
 </html>

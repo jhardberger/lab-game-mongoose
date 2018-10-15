@@ -6,7 +6,11 @@ const Games = require('../models/games');
 
 //index
 router.get('/', (req, res) => {
-	res.render('index.ejs') //pass model here
+	Games.find({}, (err, foundGames) => {
+		res.render('index.ejs', {
+			games: foundGames
+		});
+	});
 });
 
 
@@ -27,6 +31,7 @@ router.post('/', (req, res) => {
 		res.redirect('/games')
 	});
 });
+
 
 
 //exp
