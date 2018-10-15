@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
 //db
 require('./db/db');
@@ -9,7 +10,7 @@ const gamesController = require('./controllers/games');
 
 
 //middleware
-
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/games', gamesController);
 

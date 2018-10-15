@@ -15,7 +15,18 @@ router.get('/new', (req, res) => {
 	res.render('new.ejs')
 });
 
-
+//new post
+router.post('/', (req, res) => {
+	console.log(req.body);
+	Games.create(req.body, (err, newGame) => {
+		if(err){
+			console.log(err);
+		}else{
+			console.log(newGame);
+		}
+		res.redirect('/games')
+	});
+});
 
 
 //exp
