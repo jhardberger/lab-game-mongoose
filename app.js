@@ -1,13 +1,18 @@
 const express = require('express');
 const app = express();
+
 //db
 require('./db/db');
+
+//controller
+const gamesController = require('./controllers/games');
+app.use('/games', gamesController);
 
 //middleware
 
 //test route
 app.get('/', (req, res) => {
-	res.send('welcome to the game')
+	res.render('index.ejs')
 });
 
 //listener
