@@ -4,15 +4,16 @@
 	<title></title>
 </head>
 <body>
-	<h1>Edit <%=game.name%></h1>
+	<h1>Edit <%=developer.name%></h1>
 	<br>
-	<form action="/games/<%=game.id%>?_method=PUT" method="POST">
-		Name: <input type="text" name="name" value="<%=game.name%>"><br>
-		Developer: <input type="text" name="developer" value="<%=game.developer%>"><br>
-		Year: <input type="date" name="year" value="<%=game.year%>"><br>
+	<form action="/developers/<%=developer.id%>?_method=PUT" method="POST">
+		Name: <input type="text" name="name" value="<%=developer.name%>"><br>
+		Founded: <input type="text" name="founded" value="<%=developer.founded%>"><br>
+		Country: <input type="text" name="country" value="<%=developer.country%>"><br>
+		Games: <input type="text" name="games" value="<%=developer.games%>"><br>
 		<input type="submit">
 	</form>
-	<form action="/games/<%=game.id%>?_method=DELETE" method="POST">
+	<form action="/developers/<%=developer.id%>?_method=DELETE" method="POST">
 		<input type="submit" value="DELETE">
 	</form>
 </body>

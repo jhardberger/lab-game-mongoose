@@ -4,16 +4,16 @@
 	<title></title>
 </head>
 <body>
-	<h1><%=game.name%></h1>
+	<h1><%=developer.name%></h1>
 	<br>
-	<%=game.name%> was developed by <%=game.developer%>, and first released in <%=game.year%>. 
+	<%=developer.name%> was founded in <%=developer.founded%>, in <%=developer.country%>. 
 	<br>
 	We'll add some more text here later, or we won't. Nothing you can do about it. 
 	<br>
 	<nav>
 		<ul>
-			<li><a href="/games/<%=game.id%>/edit">Edit</a></li>
-			<li><a href="/games/">Home</a></li>
+			<li><a href="/developers/<%=developer.id%>/edit">Edit</a></li>
+			<li><a href="/developers/">Home</a></li>
 		</ul>	
 	</nav>
 </body>

@@ -7,13 +7,14 @@ const methodOverride = require('method-override');
 require('./db/db');
 
 //controller
+const developersController = require('./controllers/developers')
 const gamesController = require('./controllers/games');
 
 
 //middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
-
+app.use('/developers', developersController);
 app.use('/games', gamesController);
 
 //test route

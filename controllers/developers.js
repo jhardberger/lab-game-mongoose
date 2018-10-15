@@ -22,7 +22,7 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
 	Developers.findById(req.params.id, (err, foundDevelopers) => {
 		res.render('developers/show.ejs', {
-			developers: foundDevelopers
+			developer: foundDevelopers
 		});
 	});
 });
@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
 	Developers.findById(req.params.id, (err, editDevelopers) => {
 		res.render('developers/edit.ejs', {
-			developers: editDevelopers
+			developer: editDevelopers
 		});
 	});
 });

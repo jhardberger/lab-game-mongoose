@@ -4,14 +4,14 @@
 	<title></title>
 </head>
 <body>
-	<h1>Game Index</h1>
+	<h1>Developer Index</h1>
 	<br>
 	<ul>
-		<%games.forEach((elem, i) => { %>
-			<li><a href="/games/<%=elem.id%>"><%=elem.name%></a></li>
+		<%developers.forEach((elem, i) => { %>
+			<li><a href="/developers/<%=elem.id%>"><%=elem.name%></a></li>
 		<%})%>
 	</ul>
 	<br>
-	<a href="/games/new">Add game</a>
+	<a href="/developers/new">Add developer</a>
 </body>
 </html>
