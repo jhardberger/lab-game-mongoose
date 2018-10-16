@@ -6,11 +6,11 @@
 <body>
 	<h1>Add a Classic Game</h1>
 	<br>
-	<form method="Post" action="/games/">
+	<form method="POST" action="/games">
 		Name: <input type="text" name="name"><br>
 		Developer: 
 		<select name="developer">
-			<%developer.forEach((elem, i) => {%>
+			<%developers.forEach((elem, i) => {%>
 				<option value="<%=elem.name%>"><%=elem.name%></option>	
 			<%})%>
 		</select>

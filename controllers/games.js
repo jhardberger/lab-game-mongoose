@@ -19,7 +19,7 @@ router.get('/new', (req, res) => {
 	Developer.find({}, (err, foundDevs) => {
 		console.log('found devs here: ' + foundDevs);
 		res.render('games/new.ejs', {
-			developer: foundDevs
+			developers: foundDevs
 		});
 	});
 });
@@ -44,8 +44,6 @@ router.get('/:id/edit', (req, res) => {
 
 //new post
 router.post('/', (req, res) => {
-	console.log(req.body + 'req body here');
-	// if(req.body.developer === 'Nintendo'),
 	Games.create(req.body, (err, newGame) => {
 		if(err){
 			console.log(err);
@@ -55,6 +53,13 @@ router.post('/', (req, res) => {
 		
 		res.redirect('/games')
 	});
+	
+	Developer.findOneAndUpdate({name: req.body.developer}, (err, foundDev) => {
+
+		foundDev.games.push(req.body)
+		console.log(foundDev.games);
+	});
+
 });
 
 //edit put
