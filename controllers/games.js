@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Games = require('../models/games');
+const Developer = require('../models/developers');
 
 //routes
 
@@ -15,7 +16,9 @@ router.get('/', (req, res) => {
 
 //new
 router.get('/new', (req, res) => {
-	res.render('games/new.ejs')
+	res.render('games/new.ejs', {
+		developers: Developer
+	});
 });
 
 //show
@@ -45,6 +48,7 @@ router.post('/', (req, res) => {
 		}else{
 			console.log(newGame);
 		}
+		
 		res.redirect('/games')
 	});
 });
@@ -58,11 +62,29 @@ router.put('/:id', (req, res) => {
 
 //delete route
 router.delete('/:id', (req, res) => {
-	Games.findOneAndDelete(req.params.id, () => {
+	Games.findByIdAndRemove(req.params.id, () => {
 		res.redirect('/games')
 	});
 });
 
+//text zone
+
+// const developer1 = new Developer({
+// 	name: 'Nintendo',
+// 	founded: 1889
+// });
+
+// const game1 = new Game({
+// 	name: 'Smash bros',
+// 	developer: developer1.name
+// });
+
+// developer1.games.push(game1);
+
+// game1.save();
+// developer1.save();
+
+// console.log(developer1);
 
 
 //exp

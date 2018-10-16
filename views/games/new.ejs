@@ -12,5 +12,11 @@
 		Year: <input type="date" name="year"><br>
 		<input type="submit">
 	</form>
+	<br>
+	<ul>
+	<%for (i = 0; i < developers.collection.length; i++){%>
+		<li><%=developers.collection[i].name%></li>
+	<%}%>
+	</ul>
 </body>
 </html>

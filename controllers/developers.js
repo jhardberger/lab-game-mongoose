@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Developers = require('../models/developers');
+const Games = require('../models/games');
 
 //routes
 
