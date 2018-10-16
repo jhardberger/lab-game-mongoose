@@ -8,7 +8,12 @@
 	<br>
 	<%=developer.name%> was founded in <%=developer.founded%>, in <%=developer.country%>. 
 	<br>
-	We'll add some more text here later, or we won't. Nothing you can do about it. 
+	<h2>Games by the Developer</h2>
+	<ul>
+		<%developer.games.forEach((elem, i) => {%>
+			<li><a href="/games/<%=elem.id%>"><%=elem.name%></a></li>	
+		<%})%>
+	</ul>
 	<br>
 	<nav>
 		<ul>

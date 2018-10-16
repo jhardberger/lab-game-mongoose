@@ -22,9 +22,10 @@ router.get('/new', (req, res) => {
 //show
 router.get('/:id', (req, res) => {
 	Developers.findById(req.params.id, (err, foundDevelopers) => {
-		res.render('developers/show.ejs', {
-			developer: foundDevelopers
-		});
+		console.log(foundDevelopers)
+		// res.render('developers/show.ejs', {
+		// 	developer: foundDevelopers
+		// });
 	});
 });
 
