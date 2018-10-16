@@ -16,8 +16,11 @@ router.get('/', (req, res) => {
 
 //new
 router.get('/new', (req, res) => {
-	res.render('games/new.ejs', {
-		developers: Developer
+	Developer.find({}, (err, foundDevs) => {
+		console.log('found devs here: ' + foundDevs);
+		res.render('games/new.ejs', {
+			developer: foundDevs
+		});
 	});
 });
 
@@ -41,7 +44,8 @@ router.get('/:id/edit', (req, res) => {
 
 //new post
 router.post('/', (req, res) => {
-	console.log(req.body);
+	console.log(req.body + 'req body here');
+	// if(req.body.developer === 'Nintendo'),
 	Games.create(req.body, (err, newGame) => {
 		if(err){
 			console.log(err);

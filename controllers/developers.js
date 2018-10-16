@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
 	Developers.findById(req.params.id, (err, editDevelopers) => {
 		res.render('developers/edit.ejs', {
-			developer: editDevelopers
+			developer: editDevelopers,
 		});
 	});
 });

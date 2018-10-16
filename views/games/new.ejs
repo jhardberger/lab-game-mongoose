@@ -8,15 +8,16 @@
 	<br>
 	<form method="Post" action="/games/">
 		Name: <input type="text" name="name"><br>
-		Developer: <input type="text" name="developer"><br>
+		Developer: 
+		<select name="developer">
+			<%developer.forEach((elem, i) => {%>
+				<option value="<%=elem.name%>"><%=elem.name%></option>	
+			<%})%>
+		</select>
+		<br>
 		Year: <input type="date" name="year"><br>
 		<input type="submit">
 	</form>
 	<br>
-	<ul>
-	<%for (i = 0; i < developers.collection.length; i++){%>
-		<li><%=developers.collection[i].name%></li>
-	<%}%>
-	</ul>
 </body>
 </html>

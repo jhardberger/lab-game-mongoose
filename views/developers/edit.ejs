@@ -10,7 +10,7 @@
 		Name: <input type="text" name="name" value="<%=developer.name%>"><br>
 		Founded: <input type="text" name="founded" value="<%=developer.founded%>"><br>
 		Country: <input type="text" name="country" value="<%=developer.country%>"><br>
-		Games: <input type="text" name="games" value="<%=developer.games%>"><br>
+		Games: <input type="text" name="games" value="<%=developer.games[0].name%>"><br>
 		<input type="submit">
 	</form>
 	<form action="/developers/<%=developer.id%>?_method=DELETE" method="POST">
