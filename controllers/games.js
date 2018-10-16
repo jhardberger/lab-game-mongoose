@@ -49,18 +49,18 @@ router.post('/', (req, res) => {
 			console.log(err);
 		}else{
 			console.log(newGame);
-			
-			Developer.findOneAndUpdate({name: req.body.developer}, (err, foundDev) => {
-				if(err){
-					console.log(err)
-				}else{
-					foundDev.games.push(req.body)
-					console.log(foundDev);
-					console.log('=====================')
-					res.redirect('/games')
-				}
-			});
+			res.redirect('/games')
 		}
+			
+		Developer.findOneAndUpdate({name: req.body.developer}, (err, foundDev) => {
+			if(err){
+				console.log(err)
+			}else{
+				foundDev.games.push(req.body)
+				console.log(foundDev);
+				console.log('=====================')
+			}
+		});
 	});
 	
 
@@ -80,7 +80,7 @@ router.delete('/:id', (req, res) => {
 	});
 });
 
-//text zone
+//test zone
 
 // const developer1 = new Developer({
 // 	name: 'Nintendo',
